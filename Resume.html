@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hitesh Rai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FBFAF5;
+    --paper-dim: #F3F0E8;
+    --ink: #1C2A22;
+    --ink-soft: #4B584F;
+    --line: #D9D3C4;
+    --moss: #5B7A5E;
+    --moss-dim: #E4EAE1;
+    --amber: #C0752E;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--moss); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { color: var(--amber); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+
+  .wrap {
+    max-width: 660px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  header.hero {
+    padding: 96px 0 56px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: clamp(42px, 8vw, 64px);
+    line-height: 1.05;
+    margin: 0 0 14px;
+    letter-spacing: -0.01em;
+    opacity: 0;
+    animation: rise 0.7s ease-out forwards;
+  }
+
+  .hero .role {
+    font-size: 18px;
+    color: var(--ink-soft);
+    margin: 0 0 28px;
+    max-width: 46ch;
+    opacity: 0;
+    animation: rise 0.7s ease-out 0.12s forwards;
+  }
+
+  .hero .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    font-size: 15px;
+    font-family: 'IBM Plex Mono', monospace;
+    opacity: 0;
+    animation: rise 0.7s ease-out 0.22s forwards;
+  }
+  .hero .contact-row a { color: var(--ink); }
+  .hero .contact-row span.sep { color: var(--line); }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero h1, .hero .role, .hero .contact-row { animation: none; opacity: 1; }
+  }
+
+  section { padding: 56px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: none; }
+
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 26px;
+    margin: 0 0 20px;
+    letter-spacing: -0.005em;
+  }
+
+  p { margin: 0 0 16px; max-width: 62ch; }
+  p:last-child { margin-bottom: 0; }
+
+  .story p { color: var(--ink-soft); }
+  .story strong { color: var(--ink); font-weight: 600; }
+
+  /* Journey — the only place a sequence device belongs, since it's genuinely chronological */
+  .journey-list {
+    position: relative;
+    margin-left: 6px;
+    padding-left: 26px;
+    border-left: 1px solid var(--line);
+  }
+
+  .journey-item { position: relative; padding-bottom: 30px; }
+  .journey-item:last-child { padding-bottom: 0; }
+
+  .journey-item::before {
+    content: '';
+    position: absolute;
+    left: -31px;
+    top: 6px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 2px solid var(--moss);
+  }
+  .journey-item.pause::before { border-color: var(--amber); }
+  .journey-item.now::before { background: var(--moss); }
+
+  .journey-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--ink-soft);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .journey-title { font-weight: 600; font-size: 16.5px; }
+  .journey-place { color: var(--ink-soft); font-size: 15px; margin-top: 2px; }
+  .journey-note { color: var(--ink-soft); font-size: 15px; margin-top: 6px; max-width: 54ch; }
+
+  /* Skills */
+  .skill-group { margin-bottom: 22px; }
+  .skill-group:last-child { margin-bottom: 0; }
+  .skill-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--moss);
+    margin-bottom: 6px;
+  }
+  .skill-items { font-size: 16px; color: var(--ink); }
+
+  /* Project */
+  .project-card {
+    background: var(--paper-dim);
+    border-radius: 3px;
+    padding: 22px 24px;
+  }
+  .project-card h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 19px;
+    margin: 0 0 8px;
+  }
+  .project-card p { color: var(--ink-soft); font-size: 15.5px; }
+  .project-status {
+    display: inline-block;
+    margin-top: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    color: var(--amber);
+  }
+
+  .now-quote {
+    font-family: 'Fraunces', serif;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 0 0 18px;
+  }
+
+  footer {
+    padding: 48px 0 80px;
+  }
+  footer .foot-line {
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+  }
+  footer .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 15px;
+  }
+
+  @media (max-width: 480px) {
+    header.hero { padding: 64px 0 40px; }
+    section { padding: 40px 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="hero">
+    <h1>Hitesh Rai</h1>
+    <p class="role">I work on the backend and support side of software — Java, SQL, and keeping systems and customers running smoothly. This page is where I keep track of where I've been and what I'm building toward.</p>
+    <div class="contact-row">
+      <a href="tel:+918081017842">+91 8081017842</a>
+      <span class="sep">/</span>
+      <a href="mailto:hrai808101@gmail.com">hrai808101@gmail.com</a>
+      <span class="sep">/</span>
+      <a href="https://www.linkedin.com/in/hitesh2025/" target="_blank" rel="noopener">LinkedIn</a>
+      <span class="sep">/</span>
+      <a href="https://github.com/hitu-8817" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </header>
+
+  <section class="story">
+    <h2>A bit about me</h2>
+    <p>I finished Class 10 in 2018 at YM Convent School in Gyanpur, Bhadohi. Later that year I was in an accident, and the next four years went into recovering from it rather than studying. <strong>That gap on my education timeline is real, and I don't try to hide it</strong> — it's part of how I got here.</p>
+    <p>In 2022 I picked things back up and enrolled in a Diploma in Computer Science Engineering at Oriental University, Indore, finishing in 2025. Somewhere in the middle of relearning how to study, I also picked up customer support and backend coordination work, which is where a lot of my practical skills actually come from.</p>
+    <p>If there's one thing that stretch taught me, it's patience with slow progress — which turns out to be a pretty useful trait for debugging.</p>
+  </section>
+
+  <section class="journey">
+    <h2>Journey</h2>
+    <div class="journey-list">
+      <div class="journey-item">
+        <span class="journey-date">2018</span>
+        <div class="journey-title">Class 10, YM Convent School</div>
+        <div class="journey-place">Gyanpur, Bhadohi, Uttar Pradesh</div>
+      </div>
+      <div class="journey-item pause">
+        <span class="journey-date">2018 – 2022</span>
+        <div class="journey-title">Recovery break</div>
+        <div class="journey-note">Paused my education to recover from an accident.</div>
+      </div>
+      <div class="journey-item">
+        <span class="journey-date">2022 – 2025</span>
+        <div class="journey-title">Diploma in Computer Science Engineering</div>
+        <div class="journey-place">Oriental University, Indore, Madhya Pradesh</div>
+      </div>
+      <div class="journey-item">
+        <span class="journey-date">During diploma</span>
+        <div class="journey-title">Customer Support / Chat Executive</div>
+        <div class="journey-place">Swiggy, Indore</div>
+        <div class="journey-note">Handled customer queries through chat, keeping response times and accuracy on target.</div>
+      </div>
+      <div class="journey-item">
+        <span class="journey-date">During diploma</span>
+        <div class="journey-title">Backend Support Executive</div>
+        <div class="journey-place">Hindware, Greater Noida</div>
+        <div class="journey-note">Maintained customer records, managed service requests in backend systems, and coordinated between engineers and clients.</div>
+      </div>
+      <div class="journey-item now">
+        <span class="journey-date">Now</span>
+        <div class="journey-title">Building toward backend & software support roles</div>
+        <div class="journey-note">Sharpening Java, JDBC, and SQL, and applying for my first junior role.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills">
+    <h2>What I work with</h2>
+    <div class="skill-group">
+      <div class="skill-label">Backend &amp; data</div>
+      <div class="skill-items">Java, JDBC, SQL &amp; Database Management</div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-label">Tools</div>
+      <div class="skill-items">MS Word, PowerPoint, Excel, Data Entry &amp; Record Management</div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-label">Communication &amp; support</div>
+      <div class="skill-items">Email writing, customer handling, coordination, image &amp; video annotation</div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-label">Languages</div>
+      <div class="skill-items">Hindi, English</div>
+    </div>
+  </section>
+
+  <section class="project">
+    <h2>Project</h2>
+    <div class="project-card">
+      <h3>Cardiac Prediction Tool</h3>
+      <p>A college capstone project exploring cardiac risk prediction — my first real attempt at taking programming fundamentals and applying them to an actual problem instead of a textbook exercise.</p>
+      <span class="project-status">Tech stack &amp; project link — coming soon</span>
+    </div>
+  </section>
+
+  <section class="now">
+    <h2>Right now</h2>
+    <p class="now-quote">I'm not trying to look finished. I'm looking for a first backend or software support role where I can keep learning on the job — the same way I learned to keep going after 2018.</p>
+    <p>Day to day, that means going deeper on Java and SQL, writing cleaner code than I did a year ago, and staying easy to reach if something needs fixing. If you're hiring for junior backend, support, or database-adjacent roles, I'd like to hear from you.</p>
+  </section>
+
+  <footer>
+    <div class="foot-line">Thanks for reading this far.</div>
+    <div class="contact-row">
+      <a href="tel:+918081017842">+91 8081017842</a>
+      <a href="mailto:hrai808101@gmail.com">hrai808101@gmail.com</a>
+      <a href="https://www.linkedin.com/in/hitesh2025/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/hitu-8817" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>
